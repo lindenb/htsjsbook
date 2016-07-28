@@ -14,6 +14,8 @@ htsjdk is available at https://github.com/samtools/htsjdk/
 
 You can download the pre-compiled libraries from maven central.
 
+Source: [src/sh/download.shs](src/sh/download.sh)
+
 <<[Downloading the htsjdk libraries](src/sh/download.sh)
 
 at the time of writing, the following java libraries will be fetched:
@@ -71,7 +73,7 @@ jjs> java.lang.RuntimeException: java.lang.ClassNotFoundException: htsjdk.varian
 jjs> 
 ```
 
-why ? because we need to tell jjs where it can find the htsjdk libaries. So, we're going to create a variable `${HTSJDKCLASSPATH}` containing the paths to the htsjdk libraries.
+why ? because we need to tell jjs where it can find the htsjdk libaries. So, we're going to create a variable `${HTSJDKCLASSPATH}` containing the paths to the htsjdk libraries. (Hint you can use `find /path/to/basedir -name "*.jar" | tr "\n" ":"` to build the classpath ).
 
 ```
 export HTSJDKCLASSPATH=lib/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar:lib/com/github/samtools/htsjdk/2.5.1/htsjdk-2.5.1.jar:lib/gov/nih/nlm/ncbi/ngs-java/1.2.4/ngs-java-1.2.4.jar:lib/org/xerial/snappy/snappy-java/1.0.3-rc3/snappy-java-1.0.3-rc3.jar:lib/org/apache/commons/commons-jexl/2.1.1/commons-jexl-2.1.1.jar:lib/org/apache/commons/commons-compress/1.4.1/commons-compress-1.4.1.jar:lib/org/tukaani/xz/1.5/xz-1.5.jar
@@ -111,6 +113,8 @@ chr1:1234-5678	+	.
 ## Creating Programs
 
 javascript programs can be placed in plain files.
+
+Source: [src/js/createinterval.js](https://github.com/lindenb/htsjsbook/blob/master/manuscript/src/js/createinterval.js)
 
 <<[createinterval.js](src/js/createinterval.js)
 
@@ -174,7 +178,7 @@ Source: [src/js/openvcf.js](https://github.com/lindenb/htsjsbook/blob/master/man
 
 Source: [src/js/countvariantwithrsid.js](https://github.com/lindenb/htsjsbook/blob/master/manuscript/src/js/countvariantwithrsid.js)
 
-<<[Count Variants having a dbsnp ID in a VCF file](src/countvariantwithrsid.js)
+<<[Count Variants having a dbsnp ID in a VCF file](src/js/countvariantwithrsid.js)
 
 ```
 $ time jjs  -classpath ${HTSJDKCLASSPATH}  ../js/countvariantwithrsid.js -- input.vcf.gz
