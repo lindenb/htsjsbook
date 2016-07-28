@@ -14,7 +14,7 @@ htsjdk is available at https://github.com/samtools/htsjdk/
 
 You can download the pre-compiled libraries from maven central.
 
-<<[Downloading the htsjdk libraries](src/sh/bdownload.sh)
+<<[Downloading the htsjdk libraries](src/sh/download.sh)
 
 at the time of writing, the following java libraries will be fetched:
 
@@ -63,7 +63,7 @@ for non standard class, one must retrieve the class using the `Java.type` direct
 
 > The Java.type() function takes a string with the fully qualified Java class name, and returns the corresponding JavaClass function object
 
-but if we try to access a htsjdk class, such as htsjdk.variant.vcf.VCFConstants (https://samtools.github.io/htsjdk/javadoc/htsjdk/htsjdk/variant/vcf/VCFConstants.html) we'll get an error.
+but if we try to access a htsjdk class, such as [htsjdk.variant.vcf.VCFConstants](https://samtools.github.io/htsjdk/javadoc/htsjdk/htsjdk/variant/vcf/VCFConstants.html) we'll get an error.
 
 ```
 $ echo 'Java.type("htsjdk.variant.vcf.VCFConstants")'  | jjs
@@ -85,7 +85,7 @@ jjs> [JavaClass htsjdk.variant.vcf.VCFConstants]
 jjs>
 ```
 
-ok, it seems to work, now let's print the value of htsjdk.variant.vcf.VCFConstants.FILTER_HEADER_START ( https://samtools.github.io/htsjdk/javadoc/htsjdk/htsjdk/variant/vcf/VCFConstants.html#FILTER_HEADER_START ) ?
+ok, it seems to work, now let's print the value of [htsjdk.variant.vcf.VCFConstants.FILTER_HEADER_START](https://samtools.github.io/htsjdk/javadoc/htsjdk/htsjdk/variant/vcf/VCFConstants.html#FILTER_HEADER_START ) ?
 
 ```
 $ echo 'print(Java.type("htsjdk.variant.vcf.VCFConstants").FILTER_HEADER_START)'  | jjs  -classpath ${HTSJDKCLASSPATH}
@@ -98,7 +98,7 @@ jjs>
 
 > To instantiate a class, pass the JavaClass function object to the new operator. Nashorn/jjs invokes the corresponding constructor based on the arguments passed to the function.
 
-Let's create and print a  htsjdk.samtools.util.Interval ( https://samtools.github.io/htsjdk/javadoc/htsjdk/htsjdk/samtools/util/Interval.html )
+Let's create and print a  [htsjdk.samtools.util.Interval](https://samtools.github.io/htsjdk/javadoc/htsjdk/htsjdk/samtools/util/Interval.html)
 
 ```
 $ jjs  -classpath ${HTSJDKCLASSPATH}
@@ -133,9 +133,13 @@ chr1:567-890	+	.
 
 ### Example: Opening a BAM file.
 
+Source: [src/js/openbam.js](https://github.com/lindenb/htsjsbook/blob/master/manuscript/src/js/openbam.js)
+
 <<[Open a Bam file](src/js/openbam.js)
 
 ### Example: Counting the number of mapped reads in a BAM file.
+
+Source: [src/js/countmappedreads.js](https://github.com/lindenb/htsjsbook/blob/master/manuscript/src/js/countmappedreads.js)
 
 <<[Count mapped reads](src/js/countmappedreads.js)
 
@@ -162,9 +166,13 @@ sys	0m2.292s
 
 ### Example: Opening a VCF file.
 
+Source: [src/js/openvcf.js](https://github.com/lindenb/htsjsbook/blob/master/manuscript/src/js/openvcf.js)
+
 <<[Open a VCF file](src/js/openvcf.js)
 
 ### Example: Count Variants having a dbsnp ID in a VCF file
+
+Source: [src/js/countvariantwithrsid.js](https://github.com/lindenb/htsjsbook/blob/master/manuscript/src/js/countvariantwithrsid.js)
 
 <<[Count Variants having a dbsnp ID in a VCF file](src/countvariantwithrsid.js)
 
@@ -189,3 +197,5 @@ sys	0m0.016s
 ```
 
 but we take advantage of the htsjdk API.
+
+
