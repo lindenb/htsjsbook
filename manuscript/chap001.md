@@ -14,7 +14,7 @@ htsjdk is available at https://github.com/samtools/htsjdk/
 
 You can download the pre-compiled libraries from maven central.
 
-Source: [src/sh/download.shs](src/sh/download.sh)
+Source: [src/sh/download.sh](https://github.com/lindenb/htsjsbook/blob/master/manuscript/src/sh/download.sh)
 
 <<[Downloading the htsjdk libraries](src/sh/download.sh)
 
